@@ -2,21 +2,21 @@ var countriesHolder = document.getElementById("country-holder");
 var AllCountriesDataHolder = []
 
 fetch("https://covid-193.p.rapidapi.com/statistics", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "covid-193.p.rapidapi.com",
-            "x-rapidapi-key": "fa25957e81msh7574df0c132647bp1d2905jsnedab3de64590"
-        }
-    })
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "covid-193.p.rapidapi.com",
+        "x-rapidapi-key": "fa25957e81msh7574df0c132647bp1d2905jsnedab3de64590"
+    }
+})
     .then(response => response.json().then(data => {
 
         console.log(data)
         console.log(data.response)
         let countries_stat = data.response;
         AllCountriesDataHolder.push(data)
-            //ordering the unsorting data in the api
+        //ordering the unsorting data in the api
         countries_stat.sort((a, b) => (a.cases.active < b.cases.active) ? 1 : (a.cases.active === b.cases.active) ? ((a.cases.active < b.cases.active) ? 1 : -1) : -1)
-            //Getting all the country statistic using a loop
+        //Getting all the country statistic using a loop
         for (let i = 1; i < countries_stat.length; i++) {
             console.log(countries_stat[i]);
 
@@ -87,4 +87,49 @@ function numToCommas(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+//basic map config with custom fills, mercator projection
+var map = new Datamap({
+    scope: 'world',
+    element: document.getElementById('container1'),
+    projection: 'mercator',
+    height: 233,
+    width: 233,
+    fills: {
+        defaultFill: '#580009'
+    },
+    geographyConfig: {
+        popupTemplate: function (geo, data) {
+            var country = AllCountriesDataHolder[0].response.find(function (countryData) {
+                if (geo.properties.name == "United States of America")
+                    return geo.properties.name
+                else if (geo.properties.name == "Saudi Arabia")
+                    return geo.properties.name
+                else if (geo.properties.name == "United Arab Emirates")
+                    return geo.properties.name
+                else if (geo.properties.name == "united Kingdom")
+                    return geo.properties.name
+                else if (countryData.country == geo.properties.name) {
 
+
+                    return geo.properties.name
+                }
+
+            })
+
+
+
+            return ['<div class="hoverinfo"><strong>',
+                geo.properties.name,
+                `<ul>
+                <li>New: ${numToCommas((country.cases["new"] !== null) ? country.cases["new"] : 0)}</li>
+                <li>Active: ${numToCommas((country.cases["active"] !== null) ? country.cases["active"] : 0)}</li>
+                <li>Critical: ${numToCommas((country.cases["critical"] !== null) ? country.cases["critical"] : 0)}</li>
+                <li>Recovered: ${numToCommas((country.cases["recovered"] !== null) ? country.cases["recovered"] : 0)}</li>
+                <li>New deaths: ${numToCommas((country.deaths["new"] !== null) ? country.deaths["new"] : 0)}</li>
+                <li>total deaths: ${numToCommas((country.deaths["total"] !== null) ? country.deaths["total"] : 0)}</li>
+                 </ul>`,
+                '</strong></div>'
+            ].join('');
+        }
+    }
+})
