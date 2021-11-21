@@ -26,3 +26,69 @@ h2 {
     padding: 5px;
     border-radius: 10px;
 }
+
+.country-holder {
+    background-color: rgb(18, 85, 116);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    border-radius: 10px;
+    height: 200px;
+    margin-right: 5px;
+    margin-bottom: 100px;
+}
+
+.separate {
+    margin-bottom: 89px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.grid-item {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    margin: 1px;
+    padding: 25px;
+    font-size: 20px;
+    font-weight: 200;
+    text-align: center;
+    color: white;
+    background-color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(112, 112, 112, 0.19);
+}
+
+.recover {
+    background-color: #006600;
+}
+
+#container1 {
+    /* margin-left: auto;
+    margin-bottom: 120px; */
+    /* padding-left: 34px;
+    padding-right: 34px; */
+    margin-left: 30%;
+    max-width: 50%;
+    margin-top: -75px;
+    transform: scale(1);
+    transform-origin: 0 0;
+}
+
+.datamap {
+    zoom: 250%;
+}
+
+.datamaps-subunits {
+    height: 100%;
+    position: fixed;
+}
+
+@media only screen and (max-width: 600px) {
+    #container1 {
+        margin-left: 0%;
+    }
+    .datamap {
+        zoom: 130%;
+    }
+}
