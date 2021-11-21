@@ -11,3 +11,18 @@ h1 {
   margin-top: 0px;
   border-radius: 10px;
 }
+
+h1,
+h2 {
+    text-align: center;
+    color: white;
+    font-weight: 100;
+}
+
+h2 {
+    background-color: rgb(0, 19, 30);
+    padding-bottom: 15px;
+    margin: 0px;
+    padding: 5px;
+    border-radius: 10px;
+}
