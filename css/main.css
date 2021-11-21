@@ -1,0 +1,13 @@
+body {
+  position: relative;
+  margin: 4px;
+  background-color: steelblue;
+  font-family: 'Bree Serif', serif;
+  background: linear-gradient(to right, rgb(60, 114, 138), rgb(18, 85, 116), rgb(46, 130, 167));
+}
+
+h1 {
+  background-color: #660000;
+  margin-top: 0px;
+  border-radius: 10px;
+}
