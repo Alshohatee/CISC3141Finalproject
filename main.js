@@ -32,3 +32,59 @@ fetch("https://covid-193.p.rapidapi.com/statistics", {
     })).catch(err => {
         console.log(err);
     });
+
+
+
+function fillData(count, newCase, activeCase, criticalCase, recoveredCase, deathsCaseNew, deathsCasetotal) {
+
+    countPara = document.createElement('h2')
+    newCasePara = document.createElement('p')
+    activeCasePara = document.createElement('p')
+    criticalCasePara = document.createElement('p')
+    recoveredCasePara = document.createElement('p')
+    deathsCaseNewPara = document.createElement('p')
+    deathsCasetotalPara = document.createElement('p')
+
+
+    newCasePara.setAttribute("class", "grid-item")
+    activeCasePara.setAttribute("class", "grid-item")
+    criticalCasePara.setAttribute("class", "grid-item")
+    recoveredCasePara.setAttribute("class", "grid-item recover")
+    deathsCaseNewPara.setAttribute("class", "grid-item")
+    deathsCasetotalPara.setAttribute("class", "grid-item")
+
+
+    countPara.innerHTML = ` ${count}`
+    newCasePara.innerHTML = ` New: ${newCase}`
+    activeCasePara.innerHTML = `Active: ${activeCase}`
+    criticalCasePara.innerHTML = `Critical: ${criticalCase}`
+    recoveredCasePara.innerHTML = `Recovered: ${recoveredCase}`
+    deathsCasetotalPara.innerHTML = `Deaths: ${deathsCaseNew}`
+    deathsCaseNewPara.innerHTML = `Total Deaths: ${deathsCasetotal}`
+
+    var eachCountryData = document.createElement('div')
+    var DataHolder = document.createElement('div')
+    DataHolder.setAttribute("class", "grid-container")
+    eachCountryData.style.width = "100%"
+    eachCountryData.style.height = "300px"
+    eachCountryData.setAttribute("class", "country-holder")
+
+    eachCountryData.appendChild(countPara)
+    DataHolder.appendChild(recoveredCasePara)
+    DataHolder.appendChild(newCasePara)
+    DataHolder.appendChild(activeCasePara)
+    DataHolder.appendChild(criticalCasePara)
+    DataHolder.appendChild(deathsCaseNewPara)
+    DataHolder.appendChild(deathsCasetotalPara)
+    eachCountryData.appendChild(DataHolder)
+    countriesHolder.appendChild(eachCountryData)
+
+}
+
+
+function numToCommas(num) {
+    num = Number(num)
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
