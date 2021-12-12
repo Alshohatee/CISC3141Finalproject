@@ -2,21 +2,21 @@ var countriesHolder = document.getElementById("country-holder");
 var AllCountriesDataHolder = []
 
 fetch("https://covid-193.p.rapidapi.com/statistics", {
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-host": "covid-193.p.rapidapi.com",
-        "x-rapidapi-key": "fa25957e81msh7574df0c132647bp1d2905jsnedab3de64590"
-    }
-})
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "covid-193.p.rapidapi.com",
+            "x-rapidapi-key": "fa25957e81msh7574df0c132647bp1d2905jsnedab3de64590"
+        }
+    })
     .then(response => response.json().then(data => {
 
         console.log(data)
         console.log(data.response)
         let countries_stat = data.response;
         AllCountriesDataHolder.push(data)
-        //ordering the unsorting data in the api
+            //ordering the unsorting data in the api
         countries_stat.sort((a, b) => (a.cases.active < b.cases.active) ? 1 : (a.cases.active === b.cases.active) ? ((a.cases.active < b.cases.active) ? 1 : -1) : -1)
-        //Getting all the country statistic using a loop
+            //Getting all the country statistic using a loop
         for (let i = 1; i < countries_stat.length; i++) {
             console.log(countries_stat[i]);
 
@@ -68,6 +68,7 @@ function fillData(count, newCase, activeCase, criticalCase, recoveredCase, death
     eachCountryData.style.width = "100%"
     eachCountryData.style.height = "300px"
     eachCountryData.setAttribute("class", "country-holder")
+    eachCountryData.setAttribute("id", count)
 
     eachCountryData.appendChild(countPara)
     DataHolder.appendChild(recoveredCasePara)
@@ -98,8 +99,8 @@ var map = new Datamap({
         defaultFill: '#580009'
     },
     geographyConfig: {
-        popupTemplate: function (geo, data) {
-            var country = AllCountriesDataHolder[0].response.find(function (countryData) {
+        popupTemplate: function(geo, data) {
+            var country = AllCountriesDataHolder[0].response.find(function(countryData) {
                 if (geo.properties.name == "United States of America")
                     return geo.properties.name
                 else if (geo.properties.name == "Saudi Arabia")
@@ -133,3 +134,43 @@ var map = new Datamap({
         }
     }
 })
+
+
+
+document.getElementById("form").addEventListener("click", function(event) {
+    event.preventDefault()
+
+});
+document.getElementById("inp").addEventListener("click", function(event) {
+    let atag = document.getElementsByClassName('btn')
+
+    // let btn = document.getElementsByClassName('btn')
+    let country = document.getElementById("inp").value;
+    namecountry = "#" + country
+
+
+    console.log(atag)
+
+    const newLocal = "href";
+    // const name = btn.id
+    // btn.setAttribute("name", "value");
+
+    atag[0].setAttribute(newLocal, namecountry)
+
+});
+
+function myFunction() {
+
+    let atag = document.getElementsByClassName('btn')
+        // btn.setAttribute("href", country)
+    document.getElementById(atag.href).scrollIntoView();
+
+}
+
+function search(string) {
+    window.find(string);
+}
+// var preview = document.querySelectorAll("form");
+// for (var i = 0; i < preview.length; i++) {
+//     preview[i].setAttribute("namecountry", 'href');
+// }
