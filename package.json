@@ -1,0 +1,25 @@
+{
+  "name": "bonjour",
+  "version": "1.0.0",
+  "main": "./js/main.js",
+  "repository": "https://github.com/Mig-uel/Bonjour.git",
+  "author": "N/A",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "parcel": "^2.0.1"
+  },
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  },
+  "browserlist": [
+    "last 1 Chrome version",
+    "last 1 Safari version"
+  ],
+  "engines": {
+    "node": "17.x"
+  }
+}
