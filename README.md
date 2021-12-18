@@ -86,3 +86,12 @@ _Bonjour_ meets the mandatory requirements by meeting the following:
 - A sharing-feature could even be added
 - May add a timelapse section for which users can refer to future weather predictions whether that is telling users what weather they should expect in the next few hours or days
 - Also may consider using three js for visuals and animations of our forecasts to make the app visuals more animated
+
+### webiste
+
+[go](https://alshohatee.github.io/CISC3141Finalproject/)
+
+### to run on your machine
+
+> npm install
+> npm start
