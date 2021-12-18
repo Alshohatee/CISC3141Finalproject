@@ -8,7 +8,7 @@ fetch("https://covid-193.p.rapidapi.com/statistics", {
     }
 }).then((response)=>response.json().then((data)=>{
         console.log(data);
-        console.log(data.response);
+        // console.log(data.response)
         let countries_stat = data.response;
         AllCountriesDataHolder.push(data);
         //ordering the unsorting data in the api
@@ -107,25 +107,22 @@ var map = new Datamap({
         }
     }
 });
-document.getElementById("form").addEventListener("click", function(event) {
-    event.preventDefault();
-});
-document.getElementById("inp").addEventListener("click", function(event) {
-    let atag = document.getElementsByClassName('btn');
-    // let btn = document.getElementsByClassName('btn')
-    let country = document.getElementById("inp").value;
-    namecountry = "#" + country;
-    console.log(atag);
-    const newLocal = "href";
-    // const name = btn.id
-    // btn.setAttribute("name", "value");
-    atag[0].setAttribute(newLocal, namecountry);
-});
-function myFunction() {
-    let atag = document.getElementsByClassName('btn');
-    // btn.setAttribute("href", country)
-    document.getElementById(atag.href).scrollIntoView();
-}
+// document.getElementById("inp").addEventListener("click", function(event) {
+//     let atag = document.getElementsByClassName('btn')
+//     // let btn = document.getElementsByClassName('btn')
+//     let country = document.getElementById("inp").value;
+//     namecountry = "#" + country
+//     console.log(atag)
+//     const newLocal = "href";
+//     // const name = btn.id
+//     // btn.setAttribute("name", "value");
+//     atag[0].setAttribute(newLocal, namecountry)
+// });
+// function myFunction() {
+//     let atag = document.getElementsByClassName('btn')
+//         // btn.setAttribute("href", country)
+//     document.getElementById(atag.href).scrollIntoView();
+// }
 function search(string) {
     window.find(string);
 } // var preview = document.querySelectorAll("form");
