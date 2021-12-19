@@ -219,9 +219,10 @@ body {
   color: #fff;
   font-family: 'Tahoma';
   text-decoration: none;
+  text-align: justify;
 }
 .headline:hover {
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #fff;
 }
 nav {
   /* outline: 2px solid #fff; */
@@ -229,7 +230,6 @@ nav {
 
   text-decoration: none;
   display: flex;
-  justify-content: flex-start;
   position: absolute;
   padding: 1rem;
 }
@@ -238,6 +238,7 @@ nav {
 
   width: 100%;
   display: flex;
+  justify-content:center;
 }
 .nav-link {
   /* outline: 2px solid #fff; */
@@ -250,7 +251,9 @@ nav {
 .nav-link:hover {
   color: #fff;
 }
-
+#covid-stats {
+  /* outline: 2px solid #fff; */
+}
 @media screen and (max-width: 1000px) {
   #quote-author {
     align-self: center;
@@ -276,6 +279,8 @@ nav {
     position: fixed;
     background-color: rgba(255, 255, 255, 0.2);
     z-index: 1;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
   .nav-container {
     justify-content: space-evenly;

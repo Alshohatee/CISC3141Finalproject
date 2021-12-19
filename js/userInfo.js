@@ -1,4 +1,4 @@
-import { cookies } from './cookies'
+import { setUserData } from './setUserData'
 
 export let getUserInfo = async () => {
   let div = document.createElement('div');
@@ -83,7 +83,7 @@ export let getUserInfo = async () => {
       zip: zip
     };
 
-    cookies(user);
+    setUserData(user);
     div.remove();
   });
 };
