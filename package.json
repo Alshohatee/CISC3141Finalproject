@@ -16,7 +16,7 @@
   "devDependencies": {
     "dotenv": "^10.0.0"
   },
-  "browserlist": [
+  "browserslist": [
     "last 1 Chrome version",
     "last 1 Safari version"
   ],
