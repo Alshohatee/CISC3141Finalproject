@@ -1,9 +1,20 @@
 body {
     position: relative;
     margin: 4px;
-    background-color: steelblue;
+    /* background-color: steelblue; */
     font-family: 'Bree Serif', serif;
-    background: linear-gradient(to right, rgb(60, 114, 138), rgb(18, 85, 116), rgb(46, 130, 167));
+    /* background: linear-gradient(to right, rgb(60, 114, 138), rgb(18, 85, 116), rgb(46, 130, 167)); */
+    /* background-image: image("../assets/tile_background.png"); */
+    /* border: 2px solid black;
+    padding: 25px; */
+    /* background-repeat: url("../assets/default-bg.jpg"); */
+    background: url(../assets/backgrounds/afternoon-bg.jpg);
+    background: url(../assets/backgrounds/tile_background.png) top left repeat, url(../assets/backgrounds/tile_background.png) top left no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 h1 {
