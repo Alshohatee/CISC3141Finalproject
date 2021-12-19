@@ -464,7 +464,7 @@ var _userInfo = require("./userInfo");
 var _background = require("./background");
 var _zipToState = require("./zipToState");
 var _bootstrapIconsCss = require("bootstrap-icons/font/bootstrap-icons.css");
-fetch(`https://api.covidactnow.org/v2/states.json?apiKey=${"a2e939edef444c6ab5c70f195063965e"}`).then((response)=>response.json()
+fetch(`https://api.covidactnow.org/v2/states.json?apiKey=${"aa126b9985f19d78257d357d0afe4e8f"}`).then((response)=>response.json()
 ).then((data)=>{
     fill(data);
 });
@@ -2305,7 +2305,7 @@ let getUserInfo = async ()=>{
     });
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","./setUserData":"GacJi"}],"GacJi":[function(require,module,exports) {
+},{"./setUserData":"GacJi","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"GacJi":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "setUserData", ()=>setUserData
