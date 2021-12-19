@@ -2,6 +2,7 @@ import { weatherAPI, quotesAPI, newsAPI } from './api';
 import { getUserInfo } from './userInfo';
 import { init } from './background'
 import { zipToState } from './zipToState';
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 fetch(`https://api.covidactnow.org/v2/states.json?apiKey=${process.env.API_KEY}`)
   .then(response => response.json())
@@ -11,35 +12,128 @@ fetch(`https://api.covidactnow.org/v2/states.json?apiKey=${process.env.API_KEY}`
 
 function fill(data) {
   let stats = document.getElementById("covid-stats");
+
   for (let i = 0; i < data.length; i++) {
-    thenum = localStorage.getItem("zip");
-    if (data[i]['state'] == zipToState(thenum)) {
-      cases = document.createElement('p')
-      deaths = document.createElement('p')
-      newCases = document.createElement('p')
-      newDeaths = document.createElement('p')
-      vaccinationsCompleted = document.createElement('p')
-      vaccinationsInitiated = document.createElement('p')
+    if (data[i]['state'] == zipToState(localStorage.getItem("zip"))) {
 
-      cases.innerHTML = "Cases: " + (data[i]['actuals']['cases']).toLocaleString();
-      deaths.innerHTML = "Deaths: " + (data[i]['actuals']['deaths']).toLocaleString();
-      newCases.innerHTML = "New Cases: " + (data[i]['actuals']['newCases']).toLocaleString();
-      newDeaths.innerHTML = "New Deaths: " + (data[i]['actuals']['newDeaths']).toLocaleString();
-      vaccinationsCompleted.innerHTML = "Vaccinations Completed: " + (data[i]['actuals']['vaccinationsCompleted']).toLocaleString();
-      vaccinationsInitiated.innerHTML = "Vaccinations Initiated: " + (data[i]['actuals']['vaccinationsInitiated']).toLocaleString();
+      /* COVID Cases and Deaths */
+      casesAndDeathsContainer = document.createElement("div");
+      casesAndDeathsContainer.className = "all-stats-containers";
 
-      stats.appendChild(cases)
-      stats.appendChild(deaths)
-      stats.appendChild(newCases)
-      stats.appendChild(newDeaths)
-      stats.appendChild(vaccinationsCompleted)
-      stats.appendChild(vaccinationsInitiated)
+      /* Cases */
+      cases = document.createElement('div');
+      casesNumContainer = document.createElement('div');
+      casesNumContainer.className = "test";
+
+      cases.className = 'stats-title'
+      cases.innerHTML = `Cases`;
+
+      casesNum = document.createElement('div')
+      casesNum.className = 'stats-num'
+      casesNum.innerHTML = `${(data[i]['actuals']['cases']).toLocaleString()}`;
+      casesNumContainer.appendChild(cases);
+      casesNumContainer.appendChild(casesNum);
+
+      casesAndDeathsContainer.appendChild(casesNumContainer); // Final to Append
+
+      /* Deaths */
+      deathsNumContainer = document.createElement('div');
+      deathsNumContainer.className = "deaths-num-container";
+
+      deaths = document.createElement('div')
+      deaths.className = 'stats-title'
+      deaths.innerHTML = `Deaths`;
+
+      deathsNum = document.createElement('div')
+      deathsNum.className = 'stats-num'
+      deathsNum.innerHTML = `${(data[i]['actuals']['deaths']).toLocaleString()}`;
+
+      deathsNumContainer.appendChild(deaths);
+      deathsNumContainer.appendChild(deathsNum);
+      casesAndDeathsContainer.appendChild(deathsNumContainer); // Final to Append
+
+      /* COVID New Cases and Deaths */
+      newCasesAndDeathsContainer = document.createElement("div");
+      newCasesAndDeathsContainer.className = "all-stats-containers";
+
+      /* New Cases */
+      newCases = document.createElement('div')
+      newCases.className = 'stats-title'
+      newCases.innerHTML = "New Cases"
+
+      newCasesNum = document.createElement('div')
+      newCasesNum.className = 'stats-num'
+      newCasesNum.innerHTML = `${(data[i]['actuals']['newCases']).toLocaleString()}`;
+
+      newCasesNumContainer = document.createElement('div')
+      newCasesNumContainer.className = "test";
+      newCasesNumContainer.appendChild(newCases);
+      newCasesNumContainer.appendChild(newCasesNum);
+
+      newCasesAndDeathsContainer.appendChild(newCasesNumContainer); // Final to Append
+
+      /* New Deaths */
+      newDeaths = document.createElement('div')
+      newDeaths.className = 'stats-title'
+      newDeaths.innerHTML = "New Deaths";
+
+      newDeathsNum = document.createElement('div')
+      newDeathsNum.className = 'stats-num'
+      newDeathsNum.innerHTML = `${(data[i]['actuals']['newDeaths']).toLocaleString()}`;
+
+      newDeathsNumContainer = document.createElement('div')
+      newDeathsNumContainer.className = "test";
+      newDeathsNumContainer.appendChild(newDeaths);
+      newDeathsNumContainer.appendChild(newDeathsNum);
+
+      newCasesAndDeathsContainer.appendChild(newDeathsNumContainer); // Final to Append
+
+      /* COVID Vaccinations */
+      vaccinationsContainer = document.createElement("div");
+      vaccinationsContainer.className = "all-stats-containers icky";
+
+      /* Vaccinations Completed */
+      vaccinationsCompleted = document.createElement('div')
+      vaccinationsCompleted.className = 'stats-title'
+      vaccinationsCompleted.innerHTML = "Vaccinations Completed"
+
+      vaccinationsCompletedNum = document.createElement('div')
+      vaccinationsCompletedNum.className = 'stats-num'
+      vaccinationsCompletedNum.innerHTML = `${(data[i]['actuals']['vaccinationsCompleted']).toLocaleString()}`
+
+      vaccinationsCompletedNumContainer = document.createElement('div')
+      vaccinationsCompletedNumContainer.className = "test";
+      vaccinationsCompletedNumContainer.appendChild(vaccinationsCompleted);
+      vaccinationsCompletedNumContainer.appendChild(vaccinationsCompletedNum);
+
+      vaccinationsContainer.appendChild(vaccinationsCompletedNumContainer); // Final to Append
+
+      // First Dose
+      vaccinationsInitiated = document.createElement('div')
+      vaccinationsInitiated.className = 'stats-title'
+      vaccinationsInitiated.innerHTML = "Vaccinations Initiated"
+
+      vaccinationsInitiatedNum = document.createElement('div')
+      vaccinationsInitiatedNum.className = 'stats-num'
+      vaccinationsInitiatedNum.innerHTML = `${(data[i]['actuals']['vaccinationsInitiated']).toLocaleString()}`
+
+      vaccinationsInitiatedNumContainer = document.createElement('div')
+      vaccinationsInitiatedNumContainer.className = "test";
+      vaccinationsInitiatedNumContainer.appendChild(vaccinationsInitiated);
+      vaccinationsInitiatedNumContainer.appendChild(vaccinationsInitiatedNum);
+
+      vaccinationsContainer.appendChild(vaccinationsInitiatedNumContainer); // Final to Append
+
+      stats.appendChild(casesAndDeathsContainer)
+      stats.appendChild(newCasesAndDeathsContainer)
+      stats.appendChild(vaccinationsContainer)
+
       document.getElementById("state").innerHTML = data[i]['state'];
     }
   }
 }
 
-if (localStorage.getItem("name") == null)
+if (localStorage.getItem("name") == null || localStorage.getItem("name") == "" || localStorage.getItem("zip") == null || localStorage.getItem("zip") == "")
   getUserInfo();
 else
   document.getElementById("name-text").innerHTML = localStorage.getItem("name");
@@ -56,7 +150,7 @@ weatherAPI()
   });
 
 let setWeather = (name, weatherIcon, temp, hi, lo) => {
-  document.getElementById("location").innerHTML = name;
+  document.getElementById("location").innerHTML = '<i class="bi bi-geo-alt-fill"> </i>' + name;
   document.getElementById("weather-icon").src = weatherIcon;
   let src = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
   document.getElementById("weather-icon").setAttribute("src", src);
@@ -68,8 +162,8 @@ let setWeather = (name, weatherIcon, temp, hi, lo) => {
   hi = Math.round((hi * 9) / 5 - 459.67).toFixed(0);
   lo = Math.round((lo * 9) / 5 - 459.67).toFixed(0);
 
-  document.getElementById("hi").innerHTML = `High: ${hi}°F`;
-  document.getElementById("lo").innerHTML = `Low: ${lo}°F`;
+  document.getElementById("hi").innerHTML = `Hi: ${hi}°F`;
+  document.getElementById("lo").innerHTML = `Lo: ${lo}°F`;
 };
 
 quotesAPI()
