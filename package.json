@@ -1,8 +1,7 @@
 {
   "name": "bonjour",
   "version": "1.0.0",
-  "main": "./js/main.js",
-  "repository": "https://github.com/Mig-uel/Bonjour.git",
+  "source": "index.html",
   "author": "N/A",
   "license": "MIT",
   "dependencies": {
@@ -11,7 +10,8 @@
     "parcel": "^2.0.1"
   },
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "devDependencies": {
     "dotenv": "^10.0.0"
@@ -21,6 +21,6 @@
     "last 1 Safari version"
   ],
   "engines": {
-    "node": "17.x"
+    "node": ">=16.x"
   }
 }
