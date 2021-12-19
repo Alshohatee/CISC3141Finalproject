@@ -9,37 +9,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bonjour</title>
-
-
+  <script defer src="./js/main.js" type="module"></script>
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="nav-container">
+      <a class="nav-link" href="./index.html">HOME</a>
+      <a class="nav-link" href="./covid/index.html">COVID-19</a>
+      <a class="nav-link" href="">ABOUT</a>
+    </div>
+  </nav>
 
   <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid"> <a class="navbar-brand" href="#">BBBootstrap</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                    <li class="nav-item"> <a class="nav-link active" aria-current="page" href="./index2.html">covid</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Contact</a> </li>
-                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false"> Shop </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Mobiles</a></li>
-                            <li><a class="dropdown-item" href="#">Laptops</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Accessories</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-
-    </nav>
     <div class="greeting-quote-container">
-      <!--TOP/WIDE Container-->
       <div id="greeting"><span id="greeting-text">Good Morning</span>, <span id="name-text">User</span>!</div>
       <div class="quote-container">
         <div id="quote">"<span id="quote-text">I will love the light for it shows me the way, yet I will endure the
@@ -50,8 +33,6 @@
     </div>
 
     <div class="temperature-and-covid-container">
-      <!--BOTTOM/WIDE Container-->
-
       <!-- TEMPERATURE WIDGET -->
       <div id="temperature-container" class="widgets">
         <div id="location"></div>
@@ -66,23 +47,16 @@
           <div id="lo"></div>
         </div>
       </div>
-
-
       <!-- News WIDGET -->
       <div id="news" class="widgets">
         <div id="headlines-container">
-        
           <div id="content-title">Covid-statss</div>
         </div>
-
         <div id="Covid-stats"></div>
-        </div>
-        
       </div>
-
     </div>
   </div>
-  <script defer src="./js/main.js" type="module"></script>
+  </div>
 </body>
 
 </html>

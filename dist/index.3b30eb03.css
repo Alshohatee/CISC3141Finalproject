@@ -194,6 +194,33 @@ body {
   color: #fff;
   text-decoration: none;
 }
+nav {
+  /* outline: 2px solid #fff; */
+  width: 100%;
+
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  padding: 1rem;
+}
+.nav-container {
+  /* outline: 2px solid #fff; */
+
+  width: 100%;
+  display: flex;
+}
+.nav-link {
+  /* outline: 2px solid #fff; */
+
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.nav-link:hover {
+  color: #fff;
+}
 @media screen and (max-width: 1000px) {
   #quote-author {
     align-self: center;
@@ -214,6 +241,14 @@ body {
   .name-zip-container input {
     font-size: 1.5rem;
     max-width: 50%;
+  }
+  nav {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+  }
+  .nav-container {
+    justify-content: space-evenly;
   }
   /* .temperature-and-covid-container {
     flex-direction: column;
