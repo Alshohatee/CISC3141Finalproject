@@ -221,8 +221,10 @@ body {
   text-decoration: none;
   text-align: justify;
 }
-.headline:hover {
-  border-bottom: 1px solid #fff;
+.headline {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  padding: .3rem;
 }
 nav {
   /* outline: 2px solid #fff; */
@@ -251,9 +253,50 @@ nav {
 .nav-link:hover {
   color: #fff;
 }
-#covid-stats {
+
+.all-stats-containers {
   /* outline: 2px solid #fff; */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+  padding: 0;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
 }
+.stats-title {
+  /* outline: 2px solid #fff; */
+
+  text-align: center;
+  font-weight: 900;
+  font-size: 1rem;
+}
+.stats-num {
+  /* outline: 2px solid #fff; */
+
+  font-size: 1.5rem;
+  text-align: center;
+}
+.test {
+  /* outline: 2px solid #fff; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  text-align: center;
+}
+.icky {
+  border-bottom: none !important;
+}
+.selected {
+  color: #fff !important;
+}
+
 @media screen and (max-width: 1000px) {
   #quote-author {
     align-self: center;
