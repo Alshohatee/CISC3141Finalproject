@@ -461,12 +461,12 @@ function hmrAcceptRun(bundle, id) {
 },{}],"l5eIm":[function(require,module,exports) {
 var _api = require("./api");
 var _userInfo = require("./userInfo");
-fetch(`https://api.covidactnow.org/v2/states.json?apiKey=${undefined}`).then((response)=>response.json()
+fetch(`https://api.covidactnow.org/v2/states.json?apiKey=${"a2e939edef444c6ab5c70f195063965e"}`).then((response)=>response.json()
 ).then((data)=>{
     fill(data);
 });
 function fill(data) {
-    let stats = document.getElementById("Covid-stats");
+    let stats = document.getElementById("covid-stats");
     for(let i = 0; i < data.length; i++){
         thenum = document.cookie.match(/\d+/)[0];
         if (data[i]['state'] == zipToState(thenum)) {
@@ -476,12 +476,12 @@ function fill(data) {
             newDeaths = document.createElement('p');
             vaccinationsCompleted = document.createElement('p');
             vaccinationsInitiated = document.createElement('p');
-            cases.innerHTML = "Cases: " + data[i]['actuals']['cases'];
-            deaths.innerHTML = "Deaths: " + data[i]['actuals']['deaths'];
-            newCases.innerHTML = "New Cases: " + data[i]['actuals']['newCases'];
-            newDeaths.innerHTML = "New Deaths: " + data[i]['actuals']['newDeaths'];
-            vaccinationsCompleted.innerHTML = "Vaccinations Completed: " + data[i]['actuals']['vaccinationsCompleted'];
-            vaccinationsInitiated.innerHTML = "Vaccinations Initiated: " + data[i]['actuals']['vaccinationsInitiated'];
+            cases.innerHTML = "Cases: " + data[i]['actuals']['cases'].toLocaleString();
+            deaths.innerHTML = "Deaths: " + data[i]['actuals']['deaths'].toLocaleString();
+            newCases.innerHTML = "New Cases: " + data[i]['actuals']['newCases'].toLocaleString();
+            newDeaths.innerHTML = "New Deaths: " + data[i]['actuals']['newDeaths'].toLocaleString();
+            vaccinationsCompleted.innerHTML = "Vaccinations Completed: " + data[i]['actuals']['vaccinationsCompleted'].toLocaleString();
+            vaccinationsInitiated.innerHTML = "Vaccinations Initiated: " + data[i]['actuals']['vaccinationsInitiated'].toLocaleString();
             stats.appendChild(cases);
             stats.appendChild(deaths);
             stats.appendChild(newCases);
@@ -1596,7 +1596,7 @@ let getCookie = async ()=>{
     }
 };
 const weatherAPI = async (cookie)=>{
-    let url = _axiosDefault.default.get(`${undefined}${cookie}&appid=${undefined}`);
+    let url = _axiosDefault.default.get(`${"http://api.openweathermap.org/data/2.5/weather?zip="}${cookie}&appid=${"b6dc7310332306d34635df40ba08e550"}`);
     const res = url.then((response)=>{
         return response.data;
     }).catch((err)=>{
@@ -1606,7 +1606,7 @@ const weatherAPI = async (cookie)=>{
 };
 //QuotesAPI
 const quotesAPI = ()=>{
-    let url = _axiosDefault.default.get(`${undefined}`);
+    let url = _axiosDefault.default.get(`${"https://api.quotable.io/random?maxLength=100"}`);
     const res = url.then((response)=>{
         return response.data;
     }).catch((err)=>{
@@ -3293,6 +3293,8 @@ parcelHelpers.export(exports, "cookies", ()=>cookies
 let cookies = (user)=>{
     document.cookie = `name=${user.name}; expires=Thu, 18 Dec 2099 12:00:00 UTC`;
     document.cookie = `zip=${user.zip};expires=Thu, 18 Dec 2099 12:00:00 UTC`;
+    localStorage.setItem('name', user.name);
+    localStorage.setItem('zip', user.zip);
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["8EXkr","l5eIm"], "l5eIm", "parcelRequire4810")
